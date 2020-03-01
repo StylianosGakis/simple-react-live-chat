@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import io from 'socket.io-client'
 
 export const CTX = React.createContext(undefined);
 
@@ -41,7 +42,13 @@ function reducer(state, action) {
     }
 }
 
+let socket;
+
 function Store(props) {
+    if (!socket) {
+        socket = io(":3001");
+    }
+
     const reducerHook = useReducer(reducer, initialState, undefined);
     return (
         <CTX.Provider value={reducerHook}>
