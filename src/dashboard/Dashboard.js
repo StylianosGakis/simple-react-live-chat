@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Dashboard() {
     const classes = useStyles();
+    const [textValue, setTextValue] = useState("");
 
     return (
         <div>
@@ -78,6 +79,8 @@ function Dashboard() {
                     <TextField
                         label="Send a chat"
                         className={classes.chatBox}
+                        value={textValue}
+                        onChange={(e) => setTextValue(e.target.value)}
                     />
                     <Button variant="contained" color="primary">
                         Send
