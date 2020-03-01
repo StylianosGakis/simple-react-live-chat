@@ -8,9 +8,9 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
     console.log("A user has connected");
-    socket.on("chat message", (message) => {
-        console.log(`Message was: ${JSON.stringify(message)}`)
-        io.emit("chat message", message)
+    socket.on("chat message", (msg) => {
+        console.log(`Message was: ${JSON.stringify(msg)}`);
+        io.emit("chat message", msg);
     });
     socket.on("disconnect", () => {
         console.log("A user has disconnected")
