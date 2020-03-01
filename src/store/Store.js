@@ -42,7 +42,7 @@ function reducer(state, action) {
 }
 
 function Store(props) {
-    const reducerHook = useReducer(reducer, initialState);
+    const reducerHook = useReducer(reducer, initialState, undefined);
     return (
         <CTX.Provider value={reducerHook}>
             {props.children}
