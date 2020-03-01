@@ -43,7 +43,7 @@ function Dashboard() {
     const classes = useStyles();
 
     // CTX Store
-    const {allChats, socket, sendChatAction} = useContext(CTX);
+    const {allChats, sendChatAction, user} = useContext(CTX);
     const topics = Object.keys(allChats);
 
     // Local state
@@ -96,7 +96,7 @@ function Dashboard() {
                         variant="contained"
                         color="primary"
                         onClick={() => {
-                            sendChatAction(textValue);
+                            sendChatAction({from: user, msg: textValue, topic: activeTopic});
                             setTextValue("");
                         }}
                     >
