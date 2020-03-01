@@ -51,6 +51,9 @@ function sendChatAction(message) {
 function Store(props) {
     if (!socket) {
         socket = io(":3001");
+        socket.on("chat message", (message) => {
+            console.log(message)
+        });
     }
 
     const user = 'aaron' + Math.floor(Math.random() * 10000);
