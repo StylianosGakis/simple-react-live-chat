@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -67,7 +67,7 @@ function Dashboard() {
                             [{from: "user", msg: "hello"}].map((chat, index) => (
                                 <div className={classes.flex} key={index}>
                                     <Chip className={classes.chip} label={chat.from}/>
-                                    <Typography variant={"p"}>
+                                    <Typography variant={"body1"}>
                                         {chat.msg}
                                     </Typography>
                                 </div>
